@@ -39,4 +39,20 @@ final class ImagePickerViewModel extends ChangeNotifier {
     result = result!.copyWith(text: text);
     notifyListeners();
   }
+
+  Future<void> takePicture() async {
+    final pickedFile = await imagePicker.takePicture();
+    if (pickedFile != null) {
+      final imagePath = pickedFile.path;
+      final text = await _setImagePath(imagePath);
+      result = Result(
+        imagePath: imagePath,
+        text: text,
+      );
+
+      notifyListeners();
+    } else {
+      print('No image selected.');
+    }
+  }
 }

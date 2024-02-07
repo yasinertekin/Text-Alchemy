@@ -31,7 +31,10 @@ final class _ImagePickerFloatingActionButton extends StatelessWidget {
                 const CustomSizedBox(),
                 _CustomFloatingActionButton(
                   icon: Icons.camera_alt,
-                  onPressed: () {},
+                  onPressed: () async {
+                    await imagePickerViewModel.takePicture();
+                    pageController.jumpToPage(ImageData.text.index);
+                  },
                 ),
               ],
             )
