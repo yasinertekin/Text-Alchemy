@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 
 /// Custom image widget
+
 final class CustomImage extends StatelessWidget {
   /// Constructor
   const CustomImage(
