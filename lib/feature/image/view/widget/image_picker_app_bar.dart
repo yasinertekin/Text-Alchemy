@@ -7,14 +7,7 @@ final class _ImagePickerAppBar extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leading: IconButton(
-        icon: const Icon(Icons.menu),
-        onPressed: () {},
-      ),
       title: const Text('Image Picker Example'),
-      actions: const <Widget>[
-        SettingsView(),
-      ],
     );
   }
 

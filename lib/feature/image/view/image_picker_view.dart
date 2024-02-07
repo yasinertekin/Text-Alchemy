@@ -6,9 +6,9 @@ import 'package:kartal/kartal.dart';
 import 'package:text_recognitions/feature/image/view_model/image_pickar_view_model.dart';
 import 'package:text_recognitions/feature/pinned/view_model/pinned_cubit.dart';
 import 'package:text_recognitions/feature/pinned/view_model/pinned_state.dart';
-import 'package:text_recognitions/feature/settings/settings_view.dart';
 import 'package:text_recognitions/product/core/enum/image_data.dart';
 import 'package:text_recognitions/product/image_picker/image_picker.dart';
+import 'package:text_recognitions/product/initialize/theme/cubit/theme_cubit.dart';
 import 'package:text_recognitions/product/model/result.dart';
 import 'package:text_recognitions/product/widget/copy_icon_button.dart';
 import 'package:text_recognitions/product/widget/custom_image.dart';
@@ -19,10 +19,14 @@ part 'widget/custom_floating_action_button.dart';
 part 'widget/image_header.dart';
 part 'widget/image_is_empty_widget.dart';
 part 'widget/image_picker_app_bar.dart';
+part 'widget/image_picker_drawer.dart';
 part 'widget/image_picker_floating_action_button.dart';
 
 @RoutePage()
+
+/// ImagePickerView is used to pick image from gallery or camera
 final class ImagePickerView extends StatelessWidget {
+  /// ImagePickerView constructor
   const ImagePickerView({super.key});
 
   @override
@@ -32,10 +36,10 @@ final class ImagePickerView extends StatelessWidget {
       ImagePickers(picker),
     );
     final pageController = PageController();
-    final scaffoldKey = GlobalKey<ScaffoldState>();
 
     return SafeArea(
       child: Scaffold(
+        drawer: const _ImagePickerDrawer(),
         floatingActionButton: _ImagePickerFloatingActionButton(
           imagePickerViewModel: imagePickerViewModel,
           pageController: pageController,
@@ -63,7 +67,7 @@ final class _ImagePickerBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListenableBuilder(
       listenable: imagePickerViewModel,
-      builder: (context, child) => Column(
+      builder: (context, child) => ListView(
         children: <Widget>[
           _ImageHeader(
             imagePickerViewModel: imagePickerViewModel,
@@ -119,35 +123,64 @@ extension ImageDataExtension on ImageData {
   ) {
     switch (this) {
       case ImageData.image:
-        return GestureDetector(
-          onTap: () async {
-            await imagePickerViewModel.pickImage();
-            if (imagePickerViewModel.result?.imagePath == null) {
-              return;
-            }
-            await pageController.animateToPage(
-              1,
-              duration: const Duration(milliseconds: 500),
-              curve: Curves.ease,
-            );
-          },
-          child: imagePickerViewModel.result?.imagePath == null
-              ? _ImageIsEmptyWidget(
-                  imagePickerViewModel: imagePickerViewModel,
-                  pageController: pageController,
-                )
-              : CustomImage(
-                  imagePickerViewModel.result?.imagePath ?? '',
-                ),
+        return _SelectImageButton(
+          imagePickerViewModel: imagePickerViewModel,
+          pageController: pageController,
         );
 
       case ImageData.text:
-        return CustomTextField(
-          imagePickerViewModel.result ??
-              Result(
-                text: '',
-              ),
-        );
+        return imagePickerViewModel.result?.text == null
+            ? const Center(
+                child: Text('Text is empty'),
+              )
+            : CustomTextField(
+                onChanged: (value) {
+                  imagePickerViewModel.updateText(value);
+                },
+                imagePickerViewModel.result ??
+                    Result(
+                      text: '',
+                    ),
+              );
     }
+  }
+}
+
+final class _SelectImageButton extends StatelessWidget {
+  const _SelectImageButton({
+    required this.imagePickerViewModel,
+    required this.pageController,
+  });
+
+  final ImagePickerViewModel imagePickerViewModel;
+  final PageController pageController;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () async {
+        await imagePickerViewModel.pickImage();
+        if (imagePickerViewModel.result?.imagePath == null) {
+          return;
+        }
+        await _navigation();
+      },
+      child: imagePickerViewModel.result?.imagePath == null
+          ? _ImageIsEmptyWidget(
+              imagePickerViewModel: imagePickerViewModel,
+              pageController: pageController,
+            )
+          : CustomImage(
+              imagePickerViewModel.result?.imagePath ?? '',
+            ),
+    );
+  }
+
+  Future<void> _navigation() async {
+    await pageController.animateToPage(
+      1,
+      duration: const Duration(milliseconds: 500),
+      curve: Curves.ease,
+    );
   }
 }
