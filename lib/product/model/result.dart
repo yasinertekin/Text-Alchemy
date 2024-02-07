@@ -4,12 +4,13 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:text_recognitions/product/core/constants/hive_constants.dart';
 
 part 'result.g.dart';
 
 @JsonSerializable()
 @immutable
-@HiveType(typeId: 0)
+@HiveType(typeId: HiveConstants.hiveTypeId)
 final class Result with EquatableMixin {
   Result({
     this.text,
