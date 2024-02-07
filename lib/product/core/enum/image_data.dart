@@ -1,0 +1,4 @@
+enum ImageData {
+  image,
+  text,
+}
