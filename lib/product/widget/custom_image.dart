@@ -10,22 +10,34 @@ final class CustomImage extends StatelessWidget {
   const CustomImage(
     this.imagePath, {
     super.key,
+    this.height = 0.3,
+    this.width = double.infinity,
+    this.borderRadius = BorderRadius.zero,
   });
 
   /// Image path
   final String imagePath;
 
+  /// Height
+  final double height;
+
+  /// Width
+  final double width;
+
+  /// Border radius
+  final BorderRadiusGeometry borderRadius;
+
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: context.border.highBorderRadius,
+      borderRadius: borderRadius,
       child: Image.file(
         File(
           imagePath,
         ),
         fit: BoxFit.contain,
-        height: context.sized.dynamicHeight(0.3),
-        width: double.infinity,
+        height: context.sized.dynamicHeight(height),
+        width: width,
       ),
     );
   }

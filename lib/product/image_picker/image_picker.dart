@@ -21,11 +21,17 @@ final class ImagePickers extends ImagePickerInterface {
 
   @override
   Future<File?> takePicture() async {
-    final pickedFile = await imagePicker.pickImage(source: ImageSource.camera);
+    try {
+      final pickedFile =
+          await imagePicker.pickImage(source: ImageSource.camera);
 
-    if (pickedFile != null) {
-      return File(pickedFile.path);
-    } else {
+      if (pickedFile != null) {
+        return File(pickedFile.path);
+      } else {
+        return null;
+      }
+    } catch (e) {
+      Exception(e);
       return null;
     }
   }
