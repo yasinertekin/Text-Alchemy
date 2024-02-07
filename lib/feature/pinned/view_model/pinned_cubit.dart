@@ -56,4 +56,13 @@ final class PostCacheManagerCubit extends Cubit<PinnedCacheManagerState> {
       emit(PinnedCacheManagerErrorState('Error updating posts: $e'));
     }
   }
+
+  Future<void> deleteAllPinned() async {
+    try {
+      await cacheManager.clearAll();
+      emit(PinnedCacheManagerLoadedState([]));
+    } catch (e) {
+      emit(PinnedCacheManagerErrorState('Error deleting all posts: $e'));
+    }
+  }
 }
