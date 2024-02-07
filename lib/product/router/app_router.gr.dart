@@ -22,6 +22,16 @@ abstract class $AppRouter extends _i5.RootStackRouter {
 
   @override
   final Map<String, _i5.PageFactory> pagesMap = {
+    DetailTextFieldRoute.name: (routeData) {
+      final args = routeData.argsAs<DetailTextFieldRouteArgs>();
+      return _i5.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: _i1.DetailTextFieldView(
+          result: args.result,
+          key: args.key,
+        ),
+      );
+    },
     DetailRoute.name: (routeData) {
       final args = routeData.argsAs<DetailRouteArgs>();
       return _i5.AutoRoutePage<dynamic>(
@@ -38,6 +48,16 @@ abstract class $AppRouter extends _i5.RootStackRouter {
         child: const _i2.ImagePickerView(),
       );
     },
+    ImageRoute.name: (routeData) {
+      final args = routeData.argsAs<ImageRouteArgs>();
+      return _i5.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: _i1.ImageView(
+          result: args.result,
+          key: args.key,
+        ),
+      );
+    },
     NavBar.name: (routeData) {
       return _i5.AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -51,6 +71,44 @@ abstract class $AppRouter extends _i5.RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [_i1.DetailTextFieldView]
+class DetailTextFieldRoute extends _i5.PageRouteInfo<DetailTextFieldRouteArgs> {
+  DetailTextFieldRoute({
+    required _i6.Result result,
+    _i7.Key? key,
+    List<_i5.PageRouteInfo>? children,
+  }) : super(
+          DetailTextFieldRoute.name,
+          args: DetailTextFieldRouteArgs(
+            result: result,
+            key: key,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'DetailTextFieldRoute';
+
+  static const _i5.PageInfo<DetailTextFieldRouteArgs> page =
+      _i5.PageInfo<DetailTextFieldRouteArgs>(name);
+}
+
+class DetailTextFieldRouteArgs {
+  const DetailTextFieldRouteArgs({
+    required this.result,
+    this.key,
+  });
+
+  final _i6.Result result;
+
+  final _i7.Key? key;
+
+  @override
+  String toString() {
+    return 'DetailTextFieldRouteArgs{result: $result, key: $key}';
+  }
 }
 
 /// generated route for
@@ -103,6 +161,44 @@ class ImagePickerRoute extends _i5.PageRouteInfo<void> {
   static const String name = 'ImagePickerRoute';
 
   static const _i5.PageInfo<void> page = _i5.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i1.ImageView]
+class ImageRoute extends _i5.PageRouteInfo<ImageRouteArgs> {
+  ImageRoute({
+    required _i6.Result result,
+    _i7.Key? key,
+    List<_i5.PageRouteInfo>? children,
+  }) : super(
+          ImageRoute.name,
+          args: ImageRouteArgs(
+            result: result,
+            key: key,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'ImageRoute';
+
+  static const _i5.PageInfo<ImageRouteArgs> page =
+      _i5.PageInfo<ImageRouteArgs>(name);
+}
+
+class ImageRouteArgs {
+  const ImageRouteArgs({
+    required this.result,
+    this.key,
+  });
+
+  final _i6.Result result;
+
+  final _i7.Key? key;
+
+  @override
+  String toString() {
+    return 'ImageRouteArgs{result: $result, key: $key}';
+  }
 }
 
 /// generated route for

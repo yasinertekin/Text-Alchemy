@@ -8,21 +8,28 @@ final class AppRouter extends $AppRouter {
   @override
   List<AdaptiveRoute> get routes => [
         AdaptiveRoute(
-          initial: true,
           page: NavBar.page,
+          initial: true,
           children: [
             AdaptiveRoute(
-              initial: true,
               page: ImagePickerRoute.page,
-            ),
-            AdaptiveRoute(
-              page: DetailRoute.page,
             ),
             AdaptiveRoute(
               page: PinnedRoute.page,
             ),
           ],
         ),
-        AdaptiveRoute(page: DetailRoute.page),
+        AdaptiveRoute(
+          page: DetailRoute.page,
+          path: '/detail',
+          children: [
+            AdaptiveRoute(
+              page: ImageRoute.page,
+            ),
+            AdaptiveRoute(
+              page: DetailTextFieldRoute.page,
+            ),
+          ],
+        ),
       ];
 }
