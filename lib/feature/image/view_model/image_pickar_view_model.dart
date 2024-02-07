@@ -33,4 +33,10 @@ final class ImagePickerViewModel extends ChangeNotifier {
     final text = recognizedText.text;
     return text;
   }
+
+  /// Update textdd
+  void updateText(String text) {
+    result = result!.copyWith(text: text);
+    notifyListeners();
+  }
 }
