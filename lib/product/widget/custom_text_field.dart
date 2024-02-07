@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:text_recognitions/feature/pinned/view_model/pinned_cubit.dart';
 import 'package:text_recognitions/product/model/result.dart';
 
 /// Custom text field
@@ -8,6 +6,7 @@ final class CustomTextField extends StatelessWidget {
   /// Constructor
   const CustomTextField(
     this.result, {
+    required this.onChanged,
     super.key,
     this.isEditable = false,
   });
@@ -17,16 +16,14 @@ final class CustomTextField extends StatelessWidget {
 
   /// Is editable
   final bool isEditable;
+
+  /// On changed
+  final void Function(String) onChanged;
   @override
   Widget build(BuildContext context) {
     return TextField(
       maxLines: null,
-      onSubmitted: (value) {
-        context.read<PostCacheManagerCubit>().updatePinned(
-              result: result.copyWith(text: value),
-              deleteResult: result,
-            );
-      },
+      onSubmitted: onChanged,
       keyboardType: TextInputType.multiline,
       textInputAction: TextInputAction.done,
       controller: TextEditingController(
