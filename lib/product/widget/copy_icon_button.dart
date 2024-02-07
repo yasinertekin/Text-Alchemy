@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:text_recognitions/product/mixin/copy_clipboard.dart';
 import 'package:text_recognitions/product/model/result.dart';
 
 /// Copy icon button
-final class CopyIconButton extends StatelessWidget {
+final class CopyIconButton extends StatelessWidget with CopyClipBoard {
   /// Constructor
   const CopyIconButton({
     required this.result,
@@ -17,17 +17,7 @@ final class CopyIconButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: () {
-        if (result.text == null) {
-          return;
-        }
-        Clipboard.setData(
-          ClipboardData(text: result.text ?? ''),
-        );
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Copied to clipboard'),
-          ),
-        );
+        copyToClipBoard(result.text ?? '', context);
       },
       icon: const Icon(Icons.copy),
     );
