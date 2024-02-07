@@ -13,7 +13,9 @@ final class NavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Key myWidgetKey = UniqueKey();
     return AutoTabsScaffold(
+      key: myWidgetKey,
       routes: const [
         ImagePickerRoute(),
         PinnedRoute(),
