@@ -58,9 +58,12 @@ final class _ImagePickerFloatingActionButton extends StatelessWidget
   }
 }
 
+/// CustomFloatingActionButton is used to show floating action button
 final class FloatingViewModel extends ChangeNotifier {
+  /// isEnable is used to enable or disable floating action button
   bool isEnable = false;
 
+  /// changeEnable is used to change enable or disable floating action button
   void changeEnable() {
     isEnable = !isEnable;
     notifyListeners();

@@ -21,6 +21,7 @@ final class _ProcessImageButton extends StatelessWidget {
           await imageProvider.processImage(result);
         }
 
+        // ignore: use_build_context_synchronously
         await context.router.pop();
       },
       child: const Text('Save Image'),

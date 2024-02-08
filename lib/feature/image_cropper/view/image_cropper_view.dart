@@ -8,11 +8,11 @@ import 'package:text_recognitions/feature/image_cropper/view_model/image_cropper
 import 'package:text_recognitions/product/widget/custom_image.dart';
 
 part 'widget/image_crop_button.dart';
+part 'widget/image_cropper_app_bar.dart';
+part 'widget/image_cropper_options.dart';
 part 'widget/process_image_button.dart';
 
-@RoutePage(
-  name: 'ImageCropperRoute',
-)
+@RoutePage()
 
 /// ImageCropperView
 final class ImageCropperView extends StatelessWidget {
@@ -75,48 +75,6 @@ final class ImageCropperBody extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-}
-
-final class _ImageCropperAppBar extends StatelessWidget
-    implements PreferredSizeWidget {
-  const _ImageCropperAppBar();
-
-  @override
-  Widget build(BuildContext context) {
-    return AppBar(
-      title: const Text('Image Cropper'),
-    );
-  }
-
-  @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
-}
-
-final class _ImageCropperOptions extends StatelessWidget {
-  const _ImageCropperOptions({
-    required this.viewModel,
-    required this.result,
-    required this.imageProvider,
-  });
-
-  final ImageCropperViewModel viewModel;
-  final File result;
-  final ImagePickerViewModel imageProvider;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        _ImageCropButton(viewModel: viewModel, result: result),
-        _ProcessImageButton(
-          viewModel: viewModel,
-          imageProvider: imageProvider,
-          result: result,
-        ),
-      ],
     );
   }
 }

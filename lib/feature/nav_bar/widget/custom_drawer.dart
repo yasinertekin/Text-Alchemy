@@ -1,7 +1,7 @@
 part of '../nav_bar.dart';
 
 final class _CustomDrawer extends StatelessWidget {
-  const _CustomDrawer({super.key});
+  const _CustomDrawer();
 
   @override
   Widget build(BuildContext context) {

@@ -17,8 +17,9 @@ import 'package:text_recognitions/product/widget/custom_text_field.dart';
 part 'widget/custom_floating_action_button.dart';
 part 'widget/image_header.dart';
 part 'widget/image_is_empty_widget.dart';
-part 'widget/image_picker_app_bar.dart';
 part 'widget/image_picker_floating_action_button.dart';
+part 'widget/select_image_button.dart';
+part 'widget/text_is_empty.dart';
 
 @RoutePage()
 
@@ -121,9 +122,7 @@ extension ImageDataExtension on ImageData {
 
       case ImageData.text:
         return imagePickerViewModel.result?.text == null
-            ? const Center(
-                child: Text('Text is empty'),
-              )
+            ? const _TextIsEmpty()
             : CustomTextField(
                 onChanged: (value) {
                   imagePickerViewModel.updateText(value);
@@ -134,36 +133,5 @@ extension ImageDataExtension on ImageData {
                     ),
               );
     }
-  }
-}
-
-final class _SelectImageButton extends StatelessWidget with ImageSelect {
-  const _SelectImageButton({
-    required this.imagePickerViewModel,
-    required this.pageController,
-  });
-
-  final ImagePickerViewModel imagePickerViewModel;
-  final PageController pageController;
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () async {
-        await selectImageFromGallery(
-          context: context,
-          imagePickerViewModel: imagePickerViewModel,
-          pageController: pageController,
-        );
-      },
-      child: imagePickerViewModel.result?.imagePath == null
-          ? _ImageIsEmptyWidget(
-              imagePickerViewModel: imagePickerViewModel,
-              pageController: pageController,
-            )
-          : CustomImage(
-              imagePickerViewModel.result?.imagePath ?? '',
-            ),
-    );
   }
 }

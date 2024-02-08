@@ -1,13 +1,13 @@
-part of '../image_picker_view.dart';
+part of '../image_cropper_view.dart';
 
-final class _ImagePickerAppBar extends StatelessWidget
+final class _ImageCropperAppBar extends StatelessWidget
     implements PreferredSizeWidget {
-  const _ImagePickerAppBar();
+  const _ImageCropperAppBar();
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: const Text('Image Picker Example'),
+      title: const Text('Image Cropper'),
     );
   }
 
