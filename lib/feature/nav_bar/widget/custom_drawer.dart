@@ -1,0 +1,33 @@
+part of '../nav_bar.dart';
+
+final class _CustomDrawer extends StatelessWidget {
+  const _CustomDrawer({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: [
+          DrawerHeader(
+            decoration: BoxDecoration(
+              color: Theme.of(context).cardColor,
+            ),
+            child: const Text(
+              'Drawer Header',
+            ),
+          ),
+          ListTile(
+            trailing: const Icon(Icons.settings),
+            title: const Text('Change Theme'),
+            onTap: () {
+              context.read<ThemeCubit>().changeTheme(
+                    brightness: Theme.of(context).brightness,
+                  );
+            },
+          ),
+        ],
+      ),
+    );
+  }
+}
