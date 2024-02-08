@@ -14,7 +14,6 @@ import 'package:text_recognitions/product/widget/custom_loading.dart';
 import 'package:text_recognitions/product/widget/undefined_widget.dart';
 
 part 'widget/delete_all_icon_button.dart';
-part 'widget/pinned_app_bar.dart';
 part 'widget/text_card.dart';
 
 @RoutePage()
@@ -27,7 +26,6 @@ final class PinnedView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const _PinnedAppBar(),
       body: BlocBuilder<PostCacheManagerCubit, PinnedCacheManagerState>(
         builder: (context, state) {
           if (state is PinnedCacheManagerInitialState) {
