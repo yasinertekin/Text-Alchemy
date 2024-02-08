@@ -13,7 +13,7 @@ import 'package:text_recognitions/product/widget/custom_image.dart';
 import 'package:text_recognitions/product/widget/custom_loading.dart';
 import 'package:text_recognitions/product/widget/undefined_widget.dart';
 
-part 'widget/delete_all_icon_button.dart';
+part 'widget/loaded_widget.dart';
 part 'widget/text_card.dart';
 
 @RoutePage()
@@ -45,25 +45,6 @@ final class PinnedView extends StatelessWidget {
           }
         },
       ),
-    );
-  }
-}
-
-final class _LoadedWidget extends StatelessWidget {
-  const _LoadedWidget({
-    required this.resultList,
-  });
-
-  final List<Result> resultList;
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: resultList.length,
-      itemBuilder: (context, index) {
-        final result = resultList[index];
-        return _TextCard(result: result);
-      },
     );
   }
 }
