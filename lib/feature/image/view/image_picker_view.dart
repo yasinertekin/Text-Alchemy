@@ -1,14 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:kartal/kartal.dart';
+import 'package:provider/provider.dart';
 import 'package:text_recognitions/feature/image/view_model/image_pickar_view_model.dart';
 import 'package:text_recognitions/feature/pinned/view_model/pinned_cubit.dart';
 import 'package:text_recognitions/feature/pinned/view_model/pinned_state.dart';
 import 'package:text_recognitions/product/core/enum/image_data.dart';
-import 'package:text_recognitions/product/image_picker/image_picker.dart';
-import 'package:text_recognitions/product/initialize/theme/cubit/theme_cubit.dart';
+import 'package:text_recognitions/product/mixin/image_select_mixin.dart';
 import 'package:text_recognitions/product/model/result.dart';
 import 'package:text_recognitions/product/widget/copy_icon_button.dart';
 import 'package:text_recognitions/product/widget/custom_image.dart';
@@ -19,7 +18,6 @@ part 'widget/custom_floating_action_button.dart';
 part 'widget/image_header.dart';
 part 'widget/image_is_empty_widget.dart';
 part 'widget/image_picker_app_bar.dart';
-part 'widget/image_picker_drawer.dart';
 part 'widget/image_picker_floating_action_button.dart';
 
 @RoutePage()
@@ -31,23 +29,19 @@ final class ImagePickerView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final picker = ImagePicker();
-    final imagePickerViewModel = ImagePickerViewModel(
-      ImagePickers(picker),
-    );
     final pageController = PageController();
 
-    return SafeArea(
-      child: Scaffold(
-        drawer: const _ImagePickerDrawer(),
-        floatingActionButton: _ImagePickerFloatingActionButton(
-          imagePickerViewModel: imagePickerViewModel,
-          pageController: pageController,
-        ),
-        appBar: const _ImagePickerAppBar(),
-        body: _ImagePickerBody(
-          imagePickerViewModel: imagePickerViewModel,
-          pageController: pageController,
+    return Consumer<ImagePickerViewModel>(
+      builder: (context, value, child) => SafeArea(
+        child: Scaffold(
+          floatingActionButton: _ImagePickerFloatingActionButton(
+            imagePickerViewModel: value,
+            pageController: pageController,
+          ),
+          body: _ImagePickerBody(
+            pageController: pageController,
+            value: value,
+          ),
         ),
       ),
     );
@@ -56,28 +50,25 @@ final class ImagePickerView extends StatelessWidget {
 
 final class _ImagePickerBody extends StatelessWidget {
   const _ImagePickerBody({
-    required this.imagePickerViewModel,
     required this.pageController,
+    required this.value,
   });
 
-  final ImagePickerViewModel imagePickerViewModel;
   final PageController pageController;
+  final ImagePickerViewModel value;
 
   @override
   Widget build(BuildContext context) {
-    return ListenableBuilder(
-      listenable: imagePickerViewModel,
-      builder: (context, child) => ListView(
-        children: <Widget>[
-          _ImageHeader(
-            imagePickerViewModel: imagePickerViewModel,
-          ),
-          _ImagePickerPageViewBuilder(
-            pageController: pageController,
-            imagePickerViewModel: imagePickerViewModel,
-          ),
-        ],
-      ),
+    return ListView(
+      children: <Widget>[
+        _ImageHeader(
+          imagePickerViewModel: value,
+        ),
+        _ImagePickerPageViewBuilder(
+          pageController: pageController,
+          imagePickerViewModel: value,
+        ),
+      ],
     );
   }
 }
@@ -146,7 +137,7 @@ extension ImageDataExtension on ImageData {
   }
 }
 
-final class _SelectImageButton extends StatelessWidget {
+final class _SelectImageButton extends StatelessWidget with ImageSelect {
   const _SelectImageButton({
     required this.imagePickerViewModel,
     required this.pageController,
@@ -159,11 +150,11 @@ final class _SelectImageButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () async {
-        await imagePickerViewModel.pickImage();
-        if (imagePickerViewModel.result?.imagePath == null) {
-          return;
-        }
-        await _navigation();
+        await selectImageFromGallery(
+          context: context,
+          imagePickerViewModel: imagePickerViewModel,
+          pageController: pageController,
+        );
       },
       child: imagePickerViewModel.result?.imagePath == null
           ? _ImageIsEmptyWidget(
@@ -173,14 +164,6 @@ final class _SelectImageButton extends StatelessWidget {
           : CustomImage(
               imagePickerViewModel.result?.imagePath ?? '',
             ),
-    );
-  }
-
-  Future<void> _navigation() async {
-    await pageController.animateToPage(
-      1,
-      duration: const Duration(milliseconds: 500),
-      curve: Curves.ease,
     );
   }
 }
