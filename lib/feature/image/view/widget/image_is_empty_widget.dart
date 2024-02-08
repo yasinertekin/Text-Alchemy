@@ -10,22 +10,9 @@ final class _ImageIsEmptyWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () async {
-        await imagePickerViewModel.pickImage();
-        if (imagePickerViewModel.result?.imagePath == null) {
-          return;
-        }
-        await pageController.animateToPage(
-          1,
-          duration: const Duration(milliseconds: 500),
-          curve: Curves.ease,
-        );
-      },
-      child: const Icon(
-        Icons.image,
-        size: 100,
-      ),
+    return const Icon(
+      Icons.image,
+      size: 100,
     );
   }
 }
