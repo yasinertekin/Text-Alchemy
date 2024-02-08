@@ -5,13 +5,18 @@ import 'package:text_recognitions/feature/pinned/view_model/pinned_state.dart';
 import 'package:text_recognitions/product/core/cache/cache_manager.dart';
 import 'package:text_recognitions/product/model/result.dart';
 
+/// PostCacheManagerCubit is used to manage the cache of the posts
 final class PostCacheManagerCubit extends Cubit<PinnedCacheManagerState> {
+  /// PostCacheManagerCubit constructor
   PostCacheManagerCubit(this.cacheManager)
       : super(PinnedCacheManagerInitialState()) {
     fetchPosts();
   }
+
+  /// Cache manager
   final PinnedCacheManager cacheManager;
 
+  /// Fetch posts
   Future<void> fetchPosts() async {
     try {
       await cacheManager.init();
@@ -22,6 +27,7 @@ final class PostCacheManagerCubit extends Cubit<PinnedCacheManagerState> {
     }
   }
 
+  /// Add posts
   Future<void> addPosts(Result posts) async {
     try {
       await cacheManager.putItems([posts]);
@@ -32,6 +38,7 @@ final class PostCacheManagerCubit extends Cubit<PinnedCacheManagerState> {
     }
   }
 
+  /// Delete posts
   Future<void> deletePinned(String id) async {
     try {
       await cacheManager.removeItem(id);
@@ -42,6 +49,7 @@ final class PostCacheManagerCubit extends Cubit<PinnedCacheManagerState> {
     }
   }
 
+  /// Update posts
   Future<void> updatePinned({
     required Result result,
     required Result deleteResult,
@@ -57,6 +65,7 @@ final class PostCacheManagerCubit extends Cubit<PinnedCacheManagerState> {
     }
   }
 
+  /// Delete all posts
   Future<void> deleteAllPinned() async {
     try {
       await cacheManager.clearAll();

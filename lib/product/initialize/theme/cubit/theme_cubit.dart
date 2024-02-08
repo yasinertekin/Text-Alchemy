@@ -4,7 +4,9 @@ import 'package:hydrated_bloc/hydrated_bloc.dart';
 
 part 'theme_state.dart';
 
+/// ThemeCubit is used to change the theme of the app
 final class ThemeCubit extends HydratedCubit<ThemeState> {
+  /// ThemeCubit constructor
   ThemeCubit() : super(const ThemeState());
 
   /// Takes a [Brightness] object and changes the theme
