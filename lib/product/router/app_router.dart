@@ -31,5 +31,9 @@ final class AppRouter extends $AppRouter {
             ),
           ],
         ),
+        AdaptiveRoute(
+          path: '/image-cropper',
+          page: ImageCropperRoute.page,
+        ),
       ];
 }
