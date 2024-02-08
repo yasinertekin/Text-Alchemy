@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 import 'package:text_recognitions/product/image_picker/image_picker_interface.dart';
@@ -11,27 +13,28 @@ final class ImagePickerViewModel extends ChangeNotifier {
   final textRecognizer = TextRecognizer();
   Result? result;
 
-  Future<void> pickImage() async {
+  Future<File?> getImage() async {
     final pickedFile = await imagePicker.pickImage();
-    if (pickedFile != null) {
-      final imagePath = pickedFile.path;
-      final text = await _setImagePath(imagePath);
-      result = Result(
-        imagePath: imagePath,
-        text: text,
-      );
-
-      notifyListeners();
-    } else {
-      print('No image selected.');
-    }
+    return pickedFile;
   }
 
-  Future<String> _setImagePath(String imagePath) async {
+  Future<File?> getCameraImage() async {
+    final pickedFile = await imagePicker.takePicture();
+    return pickedFile;
+  }
+
+  Future<void> processImage(File pickedFile) async {
+    final imagePath = pickedFile.path;
     final inputImage = InputImage.fromFilePath(imagePath);
     final recognizedText = await textRecognizer.processImage(inputImage);
     final text = recognizedText.text;
-    return text;
+
+    result = Result(
+      text: text,
+      imagePath: imagePath,
+    );
+
+    notifyListeners();
   }
 
   /// Update textdd
@@ -40,19 +43,9 @@ final class ImagePickerViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> takePicture() async {
-    final pickedFile = await imagePicker.takePicture();
-    if (pickedFile != null) {
-      final imagePath = pickedFile.path;
-      final text = await _setImagePath(imagePath);
-      result = Result(
-        imagePath: imagePath,
-        text: text,
-      );
-
-      notifyListeners();
-    } else {
-      print('No image selected.');
-    }
+  /// Update image path
+  void updateImagePath(String imagePath) {
+    result = result!.copyWith(imagePath: imagePath);
+    notifyListeners();
   }
 }
