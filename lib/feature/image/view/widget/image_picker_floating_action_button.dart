@@ -1,6 +1,7 @@
 part of '../image_picker_view.dart';
 
-final class _ImagePickerFloatingActionButton extends StatelessWidget {
+final class _ImagePickerFloatingActionButton extends StatelessWidget
+    with ImageSelect {
   const _ImagePickerFloatingActionButton({
     required this.imagePickerViewModel,
     required this.pageController,
@@ -24,16 +25,22 @@ final class _ImagePickerFloatingActionButton extends StatelessWidget {
                 _CustomFloatingActionButton(
                   icon: Icons.image,
                   onPressed: () async {
-                    await imagePickerViewModel.pickImage();
-                    pageController.jumpToPage(ImageData.text.index);
+                    await selectImageFromGallery(
+                      context: context,
+                      pageController: pageController,
+                      imagePickerViewModel: imagePickerViewModel,
+                    );
                   },
                 ),
                 const CustomSizedBox(),
                 _CustomFloatingActionButton(
                   icon: Icons.camera_alt,
                   onPressed: () async {
-                    await imagePickerViewModel.takePicture();
-                    pageController.jumpToPage(ImageData.text.index);
+                    await selectImageFromCamera(
+                      context: context,
+                      pageController: pageController,
+                      imagePickerViewModel: imagePickerViewModel,
+                    );
                   },
                 ),
               ],
