@@ -16,9 +16,15 @@ final class _ProcessImageButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: () async {
         if (viewModel.image != null) {
-          await imageProvider.processImage(viewModel.image!);
+          await imageProvider.processImage(
+            viewModel.image!,
+            context,
+          );
         } else {
-          await imageProvider.processImage(result);
+          await imageProvider.processImage(
+            result,
+            context,
+          );
         }
 
         // ignore: use_build_context_synchronously
