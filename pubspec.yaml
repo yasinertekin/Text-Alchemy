@@ -23,6 +23,8 @@ dependencies:
   camera: ^0.10.5+9
   image_picker: ^1.0.7
   image_cropper: ^5.0.1
+  pdf: ^3.10.7
+  share_plus: ^7.2.2
 
   # Google
   google_mlkit_text_recognition: ^0.11.0
