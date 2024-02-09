@@ -30,6 +30,7 @@ final class _ImagePickerFloatingActionButton extends StatelessWidget
                       pageController: pageController,
                       imagePickerViewModel: imagePickerViewModel,
                     );
+                    floatingViewModel.changeEnable();
                   },
                 ),
                 const CustomSizedBox(),
@@ -41,6 +42,7 @@ final class _ImagePickerFloatingActionButton extends StatelessWidget
                       pageController: pageController,
                       imagePickerViewModel: imagePickerViewModel,
                     );
+                    floatingViewModel.changeEnable();
                   },
                 ),
               ],
