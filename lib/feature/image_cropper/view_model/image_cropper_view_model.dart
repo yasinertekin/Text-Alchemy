@@ -23,12 +23,8 @@ final class ImageCropperViewModel extends ChangeNotifier {
       uiSettings: [
         AndroidUiSettings(
           toolbarTitle: 'Cropper',
-          toolbarColor: Theme.of(context).colorScheme.primary,
-          toolbarWidgetColor: Theme.of(context).colorScheme.onPrimary,
           initAspectRatio: CropAspectRatioPreset.original,
           lockAspectRatio: false,
-          cropFrameColor: Theme.of(context).colorScheme.primary,
-          cropGridColor: Colors.red,
           showCropGrid: false,
         ),
       ],
