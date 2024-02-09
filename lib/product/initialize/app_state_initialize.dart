@@ -5,8 +5,8 @@ import 'package:provider/provider.dart';
 import 'package:text_recognitions/feature/image/view_model/image_pickar_view_model.dart';
 import 'package:text_recognitions/feature/pinned/view_model/pinned_cubit.dart';
 import 'package:text_recognitions/product/core/cache/pinned_manager.dart';
-import 'package:text_recognitions/product/image_picker/image_picker.dart';
 import 'package:text_recognitions/product/initialize/theme/cubit/theme_cubit.dart';
+import 'package:text_recognitions/product/service/image_picker/image_picker.dart';
 
 /// AppStateInitialize
 final class AppStateInitialize extends StatelessWidget {
