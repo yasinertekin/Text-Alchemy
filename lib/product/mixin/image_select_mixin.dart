@@ -30,7 +30,9 @@ mixin ImageSelect {
     required PageController pageController,
     required ImagePickerViewModel imagePickerViewModel,
   }) async {
-    final image = await imagePickerViewModel.getCameraImage();
+    final image = await imagePickerViewModel.getCameraImage(
+      context,
+    );
     if (image == null) {
       return;
     }
