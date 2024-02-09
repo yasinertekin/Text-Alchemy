@@ -6,7 +6,7 @@ final class _TextIsEmpty extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Text('Text is empty'),
+      child: Text(StringConstants.textIsEmpty),
     );
   }
 }

@@ -10,14 +10,17 @@ final class _NavAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title:
-          currentTab == 0 ? const Text('Image Picker') : const Text('Pinned'),
+      title: currentTab == 0
+          ? const Text(StringConstants.appName)
+          : const Text(StringConstants.navBarPinned),
       actions: [
         if (currentTab == 1)
           IconButton(
             icon: const Icon(Icons.delete),
             onPressed: () {
-              context.read<PostCacheManagerCubit>().deleteAllPinned();
+              context
+                  .read<TextRecognitionCacheManagerCubit>()
+                  .deleteAllPinned();
             },
           ),
       ],

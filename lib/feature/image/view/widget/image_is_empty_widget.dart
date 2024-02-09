@@ -10,9 +10,10 @@ final class _ImageIsEmptyWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const iconSize = 100.0;
     return const Icon(
       Icons.image,
-      size: 100,
+      size: iconSize,
     );
   }
 }

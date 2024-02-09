@@ -14,11 +14,11 @@ final class _DetailTabBar extends StatelessWidget
       controller: controller,
       tabs: const [
         Tab(
-          text: 'Text',
+          text: StringConstants.textTab,
           icon: Icon(Icons.text_fields_rounded),
         ),
         Tab(
-          text: 'Image',
+          text: StringConstants.imageTab,
           icon: Icon(
             Icons.image,
           ),

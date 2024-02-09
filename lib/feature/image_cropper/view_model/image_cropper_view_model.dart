@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_cropper/image_cropper.dart';
+import 'package:text_recognitions/product/core/constants/string_constants.dart';
 
 /// ImageCropperViewModel
 final class ImageCropperViewModel extends ChangeNotifier {
@@ -22,7 +23,7 @@ final class ImageCropperViewModel extends ChangeNotifier {
       ],
       uiSettings: [
         AndroidUiSettings(
-          toolbarTitle: 'Cropper',
+          toolbarTitle: StringConstants.imageCropper,
           initAspectRatio: CropAspectRatioPreset.original,
           lockAspectRatio: false,
           showCropGrid: false,

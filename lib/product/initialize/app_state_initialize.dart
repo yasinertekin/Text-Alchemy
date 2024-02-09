@@ -24,7 +24,7 @@ final class AppStateInitialize extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => PostCacheManagerCubit(
+          create: (context) => TextRecognitionCacheManagerCubit(
             PinnedManager.createCacheManager(),
           ),
         ),

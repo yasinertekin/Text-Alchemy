@@ -30,7 +30,7 @@ final class _ProcessImageButton extends StatelessWidget {
         // ignore: use_build_context_synchronously
         await context.router.pop();
       },
-      child: const Text('Save Image'),
+      child: const Text(StringConstants.processImage),
     );
   }
 }

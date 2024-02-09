@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:text_recognitions/feature/image/view_model/image_pickar_view_model.dart';
 import 'package:text_recognitions/feature/pinned/view_model/pinned_cubit.dart';
 import 'package:text_recognitions/feature/pinned/view_model/pinned_state.dart';
+import 'package:text_recognitions/product/core/constants/string_constants.dart';
 import 'package:text_recognitions/product/core/enum/image_data.dart';
 import 'package:text_recognitions/product/mixin/image_select_mixin.dart';
 import 'package:text_recognitions/product/model/result.dart';

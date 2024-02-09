@@ -7,7 +7,9 @@ final class _ImageCropperAppBar extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: const Text('Image Cropper'),
+      title: const Text(
+        StringConstants.imageCropper,
+      ),
     );
   }
 

@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
 import 'package:text_recognitions/feature/pinned/view_model/pinned_cubit.dart';
 import 'package:text_recognitions/feature/pinned/view_model/pinned_state.dart';
+import 'package:text_recognitions/product/core/constants/string_constants.dart';
 import 'package:text_recognitions/product/mixin/copy_clipboard.dart';
 import 'package:text_recognitions/product/mixin/text_card_dialog.dart';
 import 'package:text_recognitions/product/model/result.dart';
@@ -26,7 +27,8 @@ final class PinnedView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocBuilder<PostCacheManagerCubit, PinnedCacheManagerState>(
+      body: BlocBuilder<TextRecognitionCacheManagerCubit,
+          PinnedCacheManagerState>(
         builder: (context, state) {
           if (state is PinnedCacheManagerInitialState) {
             // Initial state, you can show loading indicator or initial content
@@ -38,7 +40,7 @@ final class PinnedView extends StatelessWidget {
           } else if (state is PinnedCacheManagerErrorState) {
             // Error state, display an error message
             return ErrorWidget(
-              'Error fetching posts: $state.error',
+              '${StringConstants.errorFetchingTextRecognition} ${state.error}',
             );
           } else {
             return const UndefinedWidget();

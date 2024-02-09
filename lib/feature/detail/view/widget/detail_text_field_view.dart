@@ -33,7 +33,7 @@ final class DetailTextFieldView extends StatelessWidget {
           padding: const EdgeInsets.all(8),
           child: CustomTextField(
             onChanged: (value) {
-              context.read<PostCacheManagerCubit>().updatePinned(
+              context.read<TextRecognitionCacheManagerCubit>().updatePinned(
                     result: result.copyWith(text: value),
                     deleteResult: result,
                   );

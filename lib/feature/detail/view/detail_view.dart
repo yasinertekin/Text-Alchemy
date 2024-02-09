@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:text_recognitions/feature/detail/view_model/detail_view_model.dart';
+import 'package:text_recognitions/product/core/constants/string_constants.dart';
 import 'package:text_recognitions/product/model/result.dart';
 import 'package:text_recognitions/product/router/app_router.gr.dart';
 import 'package:text_recognitions/product/service/pdf_service/pdf_service.dart';

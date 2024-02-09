@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:text_recognitions/product/core/constants/string_constants.dart';
 import 'package:text_recognitions/product/initialize/app_initialize.dart';
 import 'package:text_recognitions/product/initialize/app_state_initialize.dart';
 import 'package:text_recognitions/product/initialize/theme/cubit/theme_cubit.dart';
@@ -28,10 +29,15 @@ final class _MyApp extends StatelessWidget {
     return BlocBuilder<ThemeCubit, ThemeState>(
       builder: (context, state) {
         return MaterialApp.router(
-          title: 'Text Recognitions',
+          /// This is the title of the app
+          title: StringConstants.appName,
+
+          /// This is the theme of the app
           theme: AppThemeLight().theme,
           darkTheme: AppThemeDark().theme,
           themeMode: state.themeMode,
+
+          /// This is the router of the app
           routerDelegate: _appRouter.delegate(),
           routeInformationParser: _appRouter.defaultRouteParser(),
         );

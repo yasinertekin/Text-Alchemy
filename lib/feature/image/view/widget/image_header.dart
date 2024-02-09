@@ -35,13 +35,16 @@ final class _PinnedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<PostCacheManagerCubit, PinnedCacheManagerState>(
+    return BlocBuilder<TextRecognitionCacheManagerCubit,
+        PinnedCacheManagerState>(
       builder: (context, state) => Card(
         child: IconButton(
           onPressed: () {
             if (imagePickerViewModel.result != null) {
               if (state is PinnedCacheManagerLoadedState) {
-                context.read<PostCacheManagerCubit>().addPosts(
+                context
+                    .read<TextRecognitionCacheManagerCubit>()
+                    .addTextRecognitions(
                       imagePickerViewModel.result!,
                     );
               }

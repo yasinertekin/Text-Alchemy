@@ -18,7 +18,9 @@ final class _ImageCropButton extends StatelessWidget {
           context,
         );
       },
-      child: const Text('Crop Image'),
+      child: const Text(
+        StringConstants.cropImage,
+      ),
     );
   }
 }

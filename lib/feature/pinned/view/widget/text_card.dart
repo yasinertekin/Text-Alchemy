@@ -33,7 +33,9 @@ final class _TextCard extends StatelessWidget
           ),
         ),
         onDismissed: (direction) {
-          context.read<PostCacheManagerCubit>().deletePinned(result.id ?? '');
+          context
+              .read<TextRecognitionCacheManagerCubit>()
+              .deletePinned(result.id ?? '');
         },
         child: Card(
           elevation: 5,
@@ -52,7 +54,7 @@ final class _TextCard extends StatelessWidget
               );
             },
             title: Text(
-              result.text ?? 'No text found',
+              result.text ?? StringConstants.noTextFound,
               maxLines: 3,
               overflow: TextOverflow.ellipsis,
             ),

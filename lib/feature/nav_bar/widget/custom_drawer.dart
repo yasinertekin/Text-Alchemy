@@ -19,7 +19,7 @@ final class _CustomDrawer extends StatelessWidget {
           ),
           ListTile(
             trailing: const Icon(Icons.settings),
-            title: const Text('Change Theme'),
+            title: const Text(StringConstants.changeTheme),
             onTap: () {
               context.read<ThemeCubit>().changeTheme(
                     brightness: Theme.of(context).brightness,

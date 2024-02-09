@@ -3,53 +3,64 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:text_recognitions/feature/pinned/view_model/pinned_state.dart';
 import 'package:text_recognitions/product/core/cache/cache_manager.dart';
+import 'package:text_recognitions/product/core/constants/string_constants.dart';
 import 'package:text_recognitions/product/model/result.dart';
 
-/// PostCacheManagerCubit is used to manage the cache of the posts
-final class PostCacheManagerCubit extends Cubit<PinnedCacheManagerState> {
-  /// PostCacheManagerCubit constructor
-  PostCacheManagerCubit(this.cacheManager)
+/// TextRecognitionCacheManagerCubit is used to manage the cache of
+/// the TextRecognitions
+final class TextRecognitionCacheManagerCubit
+    extends Cubit<PinnedCacheManagerState> {
+  /// TextRecognitionCacheManagerCubit constructor
+  TextRecognitionCacheManagerCubit(this.cacheManager)
       : super(PinnedCacheManagerInitialState()) {
-    fetchPosts();
+    fetchTextRecognitions();
   }
 
   /// Cache manager
   final PinnedCacheManager cacheManager;
 
-  /// Fetch posts
-  Future<void> fetchPosts() async {
+  /// Fetch TextRecognitions
+  Future<void> fetchTextRecognitions() async {
     try {
       await cacheManager.init();
-      final posts = cacheManager.getValues();
-      emit(PinnedCacheManagerLoadedState(posts));
+      final textRecognitions = cacheManager.getValues();
+      emit(PinnedCacheManagerLoadedState(textRecognitions));
     } catch (e) {
-      emit(PinnedCacheManagerErrorState('Error fetching posts: $e'));
+      emit(PinnedCacheManagerErrorState('Error fetching TextRecognitions: $e'));
     }
   }
 
-  /// Add posts
-  Future<void> addPosts(Result posts) async {
+  /// Add TextRecognitions
+  Future<void> addTextRecognitions(Result textRecognitions) async {
     try {
-      await cacheManager.putItems([posts]);
-      final updatedPosts = cacheManager.getValues();
-      emit(PinnedCacheManagerLoadedState(updatedPosts));
+      await cacheManager.putItems([textRecognitions]);
+      final updatedTextRecognitions = cacheManager.getValues();
+      emit(PinnedCacheManagerLoadedState(updatedTextRecognitions));
     } catch (e) {
-      emit(PinnedCacheManagerErrorState('Error adding posts: $e'));
+      emit(
+        PinnedCacheManagerErrorState(
+          '${StringConstants.errorAddingTextRecognition}error: $e',
+        ),
+      );
     }
   }
 
-  /// Delete posts
+  /// Delete TextRecognitions
   Future<void> deletePinned(String id) async {
     try {
       await cacheManager.removeItem(id);
-      final updatedPosts = cacheManager.getValues();
-      emit(PinnedCacheManagerLoadedState(updatedPosts));
+      final updatedTextRecognitions = cacheManager.getValues();
+      emit(PinnedCacheManagerLoadedState(updatedTextRecognitions));
     } catch (e) {
-      emit(PinnedCacheManagerErrorState('Error deleting posts: $e'));
+      emit(
+        PinnedCacheManagerErrorState(
+          '${StringConstants.errorDeletingTextRecognition}error: $e',
+        ),
+      );
     }
   }
 
-  /// Update posts
+  /// Update TextRecognitions
   Future<void> updatePinned({
     required Result result,
     required Result deleteResult,
@@ -58,20 +69,28 @@ final class PostCacheManagerCubit extends Cubit<PinnedCacheManagerState> {
       await cacheManager.updateItem(result);
       await deletePinned(deleteResult.id ?? '');
 
-      final updatedPosts = cacheManager.getValues();
-      emit(PinnedCacheManagerLoadedState(updatedPosts));
+      final updatedTextRecognitions = cacheManager.getValues();
+      emit(PinnedCacheManagerLoadedState(updatedTextRecognitions));
     } catch (e) {
-      emit(PinnedCacheManagerErrorState('Error updating posts: $e'));
+      emit(
+        PinnedCacheManagerErrorState(
+          '${StringConstants.errorUpdatingTextRecognition}error: $e',
+        ),
+      );
     }
   }
 
-  /// Delete all posts
+  /// Delete all TextRecognitions
   Future<void> deleteAllPinned() async {
     try {
       await cacheManager.clearAll();
       emit(PinnedCacheManagerLoadedState([]));
     } catch (e) {
-      emit(PinnedCacheManagerErrorState('Error deleting all posts: $e'));
+      emit(
+        PinnedCacheManagerErrorState(
+          '${StringConstants.errorFetchingTextRecognition}error: $e',
+        ),
+      );
     }
   }
 }
