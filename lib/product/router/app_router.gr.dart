@@ -133,7 +133,7 @@ class DetailTextFieldRouteArgs {
 /// [_i2.DetailView]
 class DetailRoute extends _i8.PageRouteInfo<DetailRouteArgs> {
   DetailRoute({
-    required _i9.Result result,
+    required _i9.Result? result,
     _i10.Key? key,
     List<_i8.PageRouteInfo>? children,
   }) : super(
@@ -157,7 +157,7 @@ class DetailRouteArgs {
     this.key,
   });
 
-  final _i9.Result result;
+  final _i9.Result? result;
 
   final _i10.Key? key;
 
