@@ -5,10 +5,12 @@ final class _DetailAppBar extends StatelessWidget
   const _DetailAppBar({
     required this.result,
     required this.controller,
+    required this.viewModel,
   });
 
   final Result result;
   final TabController controller;
+  final DetailViewModel viewModel;
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +19,17 @@ final class _DetailAppBar extends StatelessWidget
         context.topRoute.name,
       ),
       actions: [
+        ListenableBuilder(
+          listenable: viewModel,
+          builder: (context, child) => IconButton(
+            onPressed: viewModel.isLoaded
+                ? null
+                : () async {
+                    await viewModel.createPdf(context);
+                  },
+            icon: const Icon(Icons.picture_as_pdf),
+          ),
+        ),
         CopyIconButton(result: result),
       ],
       leading: const AutoLeadingButton(),
