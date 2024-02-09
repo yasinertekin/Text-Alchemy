@@ -1,36 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="main.dart" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lib/main.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
   </component>
-  <component name="ToolWindowManager">
-    <editor active="true" />
-    <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-    </layout>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
   </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8e9c4995-585e-412b-81e5-44cfbd96cec2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/lib/product/core/extensions/context_extensions.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/product/core/constants/string_constants.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/product/core/constants/string_constants.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/product/mixin/copy_clipboard.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/product/mixin/copy_clipboard.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/product/mixin/error_mixin.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/product/mixin/error_mixin.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/product/service/image_picker/image_picker.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/product/service/image_picker/image_picker.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/product/service/pdf_service/pdf_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/product/service/pdf_service/pdf_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/product/widget/undefined_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/product/widget/undefined_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/text_recognitions.iml" beforeDir="false" afterPath="$PROJECT_DIR$/text_recognitions.iml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dart File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="5f406b5a-9f05-41c2-8047-1bce7e7697b8" />
+        <option name="url" value="https://github.com/yasinertekin/text_recognitions.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2c9H9M3Fy6usHGJPZtqozd9xERF" />
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-    </navigator>
+    <navigator currentView="ProjectPane" proportions="" version="1" />
     <panes>
       <pane id="ProjectPane">
         <option name="show-excluded-files" value="false" />
       </pane>
     </panes>
   </component>
-  <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="dart.analysis.tool.window.force.activate" value="true" />
-    <property name="show.migrate.to.gradle.popup" value="false" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "cidr.known.project.marker": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "io.flutter.reload.alreadyRun": "true",
+    "last_opened_file_path": "D:/Proje/text_recognitions",
+    "show.migrate.to.gradle.popup": "false"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8e9c4995-585e-412b-81e5-44cfbd96cec2" name="Changes" comment="" />
+      <created>1707516722132</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1707516722132</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+    </layout>
   </component>
 </project>

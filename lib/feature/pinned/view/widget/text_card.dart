@@ -12,7 +12,7 @@ final class _TextCard extends StatelessWidget
   Widget build(BuildContext context) {
     final uniqueKey = UniqueKey();
     return Padding(
-      padding: const EdgeInsets.all(8),
+      padding: context.paddingAllDefault,
       child: Dismissible(
         direction: DismissDirection.endToStart,
         confirmDismiss: (direction) async {

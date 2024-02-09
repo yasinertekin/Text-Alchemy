@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:text_recognitions/product/core/constants/string_constants.dart';
 
 /// Copy clipboard mixin
 mixin CopyClipBoard {
@@ -20,7 +21,7 @@ mixin CopyClipBoard {
   void _showSnackBar(BuildContext context) {
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
-        content: Text('Copied to clipboard'),
+        content: Text(StringConstants.copiedToClipboard),
       ),
     );
   }

@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:image_picker/image_picker.dart';
+import 'package:text_recognitions/product/core/constants/string_constants.dart';
 import 'package:text_recognitions/product/service/image_picker/image_picker_interface.dart';
 import 'package:text_recognitions/product/utility/custom_exception.dart';
 
@@ -21,7 +22,7 @@ final class ImagePickers extends ImagePickerInterface {
         return null;
       }
     } on Exception catch (e) {
-      throw CustomException('Resim seçme hatası: $e');
+      throw CustomException('${StringConstants.imageError} $e');
     }
   }
 
@@ -37,7 +38,7 @@ final class ImagePickers extends ImagePickerInterface {
         return null;
       }
     } on Exception catch (e) {
-      throw CustomException('Resim seçme hatası: $e');
+      throw CustomException('Please give camera permission $e');
     }
   }
 }

@@ -14,6 +14,7 @@ import 'package:text_recognitions/product/widget/copy_icon_button.dart';
 import 'package:text_recognitions/product/widget/custom_image.dart';
 import 'package:text_recognitions/product/widget/custom_sized_box.dart';
 import 'package:text_recognitions/product/widget/custom_text_field.dart';
+import 'package:text_recognitions/product/core/extensions/context_extensions.dart';
 
 part 'widget/custom_floating_action_button.dart';
 part 'widget/image_header.dart';
@@ -88,7 +89,7 @@ final class _ImagePickerPageViewBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     const elevation = 5.0;
     return Padding(
-      padding: const EdgeInsets.all(8),
+      padding: context.paddingAllDefault,
       child: SizedBox(
         height: context.sized.dynamicHeight(0.5),
         child: PageView.builder(

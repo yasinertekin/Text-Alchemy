@@ -57,4 +57,18 @@ final class StringConstants {
   /// Error Adding textrecognition
   static const String errorAddingTextRecognition =
       'Error adding textrecognition: ';
+
+
+  static const String copiedToClipboard = 'Copied to clipboard';
+
+  static const String error = 'Error';
+
+  static const String ok = 'Ok';
+
+  static const String imageError = 'Image Error';
+
+  static const String pdfError = 'Pdf error:';
+
+  static const String unHandledState = 'Error: Unhandled state';
+
 }

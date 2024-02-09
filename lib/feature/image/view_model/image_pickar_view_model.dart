@@ -34,7 +34,7 @@ final class ImagePickerViewModel extends ChangeNotifier with ErrorMixin {
       final pickedFile = await imagePicker.takePicture();
       return pickedFile;
     } on Exception catch (e) {
-      await showError('Resim seçme hatası: $e', context);
+      await showError('$e', context);
     }
     return null;
   }

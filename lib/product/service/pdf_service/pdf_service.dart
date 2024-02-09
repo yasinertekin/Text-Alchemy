@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:share_plus/share_plus.dart';
+import 'package:text_recognitions/product/core/constants/string_constants.dart';
 import 'package:text_recognitions/product/mixin/error_mixin.dart';
 import 'package:text_recognitions/product/utility/custom_exception.dart';
 
@@ -49,7 +50,7 @@ final class PdfServiceImpl with ErrorMixin implements PdfService {
       await Share.shareXFiles([XFile(file.path)]);
     } on Exception catch (e) {
       // Hata durumunda hata mesajını gösterin.
-      throw CustomException('PDF oluşturma hatası: $e');
+      throw CustomException('${StringConstants.pdfError} $e');
     }
   }
 }
