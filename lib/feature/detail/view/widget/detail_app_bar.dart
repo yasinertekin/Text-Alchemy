@@ -16,7 +16,9 @@ final class _DetailAppBar extends StatelessWidget
   Widget build(BuildContext context) {
     return AppBar(
       title: Text(
-        context.topRoute.name,
+        context.topRoute.name == DetailTextFieldRoute.name
+            ? StringConstants.textTab
+            : StringConstants.imageTab,
       ),
       actions: [
         ListenableBuilder(
