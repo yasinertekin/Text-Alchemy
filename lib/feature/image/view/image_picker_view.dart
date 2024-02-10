@@ -3,18 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
 import 'package:provider/provider.dart';
+import 'package:text_recognitions/feature/image/view/mixin/image_picker_view_mixin.dart';
 import 'package:text_recognitions/feature/image/view_model/image_pickar_view_model.dart';
 import 'package:text_recognitions/feature/pinned/view_model/pinned_cubit.dart';
 import 'package:text_recognitions/feature/pinned/view_model/pinned_state.dart';
 import 'package:text_recognitions/product/core/constants/string_constants.dart';
 import 'package:text_recognitions/product/core/enum/image_data.dart';
+import 'package:text_recognitions/product/core/extensions/context_extensions.dart';
 import 'package:text_recognitions/product/mixin/image_select_mixin.dart';
 import 'package:text_recognitions/product/model/result.dart';
 import 'package:text_recognitions/product/widget/copy_icon_button.dart';
 import 'package:text_recognitions/product/widget/custom_image.dart';
 import 'package:text_recognitions/product/widget/custom_sized_box.dart';
 import 'package:text_recognitions/product/widget/custom_text_field.dart';
-import 'package:text_recognitions/product/core/extensions/context_extensions.dart';
 
 part 'widget/custom_floating_action_button.dart';
 part 'widget/image_header.dart';
@@ -26,14 +27,13 @@ part 'widget/text_is_empty.dart';
 @RoutePage()
 
 /// ImagePickerView is used to pick image from gallery or camera
-final class ImagePickerView extends StatelessWidget {
+final class ImagePickerView extends StatelessWidget
+    with ImagePickermixin<ImagePickerView> {
   /// ImagePickerView constructor
-  const ImagePickerView({super.key});
+  ImagePickerView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final pageController = PageController();
-
     return Consumer<ImagePickerViewModel>(
       builder: (context, value, child) => SafeArea(
         child: Scaffold(
