@@ -5,31 +5,93 @@ final class _CustomDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final drawerList = DrawerModelLists.drawerItems(context);
     return Drawer(
-      child: ListView(
-        padding: EdgeInsets.zero,
+      child: Column(
         children: [
-          DrawerHeader(
-            decoration: BoxDecoration(
-              color: Theme.of(context).cardColor,
-            ),
-            child: const Text(
-              'Drawer Header',
-            ),
-          ),
-          ListTile(
-            trailing: Theme.of(context).brightness == Brightness.dark
-                ? const Icon(Icons.brightness_7)
-                : const Icon(Icons.brightness_4),
-            title: const Text(StringConstants.changeTheme),
-            onTap: () {
-              context.read<ThemeCubit>().changeTheme(
-                    brightness: Theme.of(context).brightness,
-                  );
-            },
-          ),
+          const _CustomDrawerHeader(),
+          _DrawerListViewBuilder(drawerList: drawerList),
         ],
       ),
     );
+  }
+}
+
+final class _CustomDrawerHeader extends StatelessWidget {
+  const _CustomDrawerHeader();
+
+  @override
+  Widget build(BuildContext context) {
+    return const DrawerHeader(
+      child: Center(
+        child: Text('Drawer Header'),
+      ),
+    );
+  }
+}
+
+final class _DrawerListViewBuilder extends StatelessWidget {
+  const _DrawerListViewBuilder({
+    required this.drawerList,
+  });
+
+  final List<DrawerModel> drawerList;
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: ListView.builder(
+        itemCount: drawerList.length,
+        itemBuilder: (context, index) {
+          final drawerItem = drawerList[index];
+          return _DrawerItemListTile(drawerItem: drawerItem);
+        },
+      ),
+    );
+  }
+}
+
+final class _DrawerItemListTile extends StatelessWidget {
+  const _DrawerItemListTile({
+    required this.drawerItem,
+  });
+
+  final DrawerModel drawerItem;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      title: Text(drawerItem.title),
+      trailing: drawerItem.trailing,
+      onTap: drawerItem.onTap,
+    );
+  }
+}
+
+/// DrawerModelLists is a model class for the drawer items.
+@immutable
+final class DrawerModelLists {
+  const DrawerModelLists._();
+
+  /// DrawerModelLists is a model class for the drawer items.
+  static List<DrawerModel> drawerItems(BuildContext context) {
+    return [
+      DrawerModel(
+        title: 'Drawer Header',
+        trailing: const Text('Drawer Header'),
+        onTap: () {},
+      ),
+      DrawerModel(
+        title: 'Change Theme',
+        trailing: Theme.of(context).brightness == Brightness.dark
+            ? const Icon(Icons.brightness_7)
+            : const Icon(Icons.brightness_4),
+        onTap: () {
+          context.read<ThemeCubit>().changeTheme(
+                brightness: Theme.of(context).brightness,
+              );
+        },
+      ),
+    ];
   }
 }
