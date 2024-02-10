@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:text_recognitions/feature/pinned/view_model/pinned_cubit.dart';
 import 'package:text_recognitions/product/core/constants/string_constants.dart';
 import 'package:text_recognitions/product/initialize/theme/cubit/theme_cubit.dart';
+import 'package:text_recognitions/product/model/drawer/drawer_model.dart';
 import 'package:text_recognitions/product/router/app_router.gr.dart';
 
 part 'widget/custom_drawer.dart';
