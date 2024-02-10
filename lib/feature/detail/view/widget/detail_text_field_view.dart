@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
 import 'package:text_recognitions/feature/pinned/view_model/pinned_cubit.dart';
+import 'package:text_recognitions/product/core/extensions/color_extensions.dart';
 import 'package:text_recognitions/product/core/extensions/context_extensions.dart';
 import 'package:text_recognitions/product/model/result.dart';
 import 'package:text_recognitions/product/widget/custom_text_field.dart';
@@ -22,11 +23,12 @@ final class DetailTextFieldView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const elevation = 0.0;
     return Padding(
       padding: context.paddingAllDefault,
       child: Card(
-        elevation: 0,
-        color: Colors.transparent,
+        elevation: elevation,
+        color: ProjectColor.colorsTransparent.color,
         shape: RoundedRectangleBorder(
           borderRadius: context.border.normalBorderRadius,
           side: const BorderSide(),
