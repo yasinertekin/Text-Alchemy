@@ -5,6 +5,7 @@ import 'package:kartal/kartal.dart';
 import 'package:text_recognitions/feature/pinned/view_model/pinned_cubit.dart';
 import 'package:text_recognitions/feature/pinned/view_model/pinned_state.dart';
 import 'package:text_recognitions/product/core/constants/string_constants.dart';
+import 'package:text_recognitions/product/core/extensions/color_extensions.dart';
 import 'package:text_recognitions/product/core/extensions/context_extensions.dart';
 import 'package:text_recognitions/product/mixin/copy_clipboard.dart';
 import 'package:text_recognitions/product/mixin/text_card_dialog.dart';
