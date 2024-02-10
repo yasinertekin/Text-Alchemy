@@ -1,7 +1,8 @@
-
 import 'package:flutter/material.dart';
 
+/// This extension contains all the context extensions used in the app
 extension MediaQueryExtension on BuildContext {
+  /// Returns the media query of the device
   MediaQueryData get mediaQuery => MediaQuery.of(this);
 
   /// Returns the height of the device
@@ -18,20 +19,16 @@ extension MediaQueryExtension on BuildContext {
 
   /// Returns 5% of the screen height
   double get highValue => height * 0.05;
-
-
-  double dynamicWidth(double val) => width * val;
-  double dynamicHeight(double val) => height * val;
 }
 
-
+/// This extension contains all the context extensions used in the app
 extension PaddingExtension on BuildContext {
-
   /// Adds 2% padding from all sides.
   EdgeInsets get paddingAllDefault => EdgeInsets.all(defaultValue);
 
   /// Adds 5% padding from all sides.
   EdgeInsets get paddingAllHigh => EdgeInsets.all(highValue);
 
-
+  /// Adds 2% padding from the top.
+  EdgeInsets get paddingOnlyRight => EdgeInsets.only(right: defaultValue);
 }
