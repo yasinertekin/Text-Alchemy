@@ -1,7 +1,7 @@
+import 'package:app_settings/app_settings.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-
-import '../core/constants/string_constants.dart';
+import 'package:text_recognitions/product/core/constants/string_constants.dart';
 
 /// ErrorMixin
 mixin ErrorMixin {
@@ -14,6 +14,14 @@ mixin ErrorMixin {
           title: const Text(StringConstants.error),
           content: Text(error),
           actions: [
+            TextButton(
+              onPressed: () {
+                AppSettings.openAppSettings(
+                  type: AppSettingsType.location,
+                );
+              },
+              child: const Text(StringConstants.openSettings),
+            ),
             TextButton(
               onPressed: () {
                 context.router.pop();
