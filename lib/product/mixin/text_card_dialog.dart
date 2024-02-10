@@ -1,4 +1,6 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:text_recognitions/product/core/constants/string_constants.dart';
 import 'package:text_recognitions/product/model/result.dart';
 
 /// Text card dialog
@@ -9,16 +11,17 @@ mixin TextCardDialog {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Delete Confirmation'),
-          content: const Text('Are you sure you want to delete this item?'),
-          actions: <Widget>[
+          title: const Text(StringConstants.deleteConfirmation),
+          content:
+              const Text(StringConstants.areYouSureYouWantToDeleteThisItem),
+          actions: <TextButton>[
             TextButton(
-              onPressed: () => Navigator.of(context).pop(true),
-              child: const Text('Delete'),
+              onPressed: () => context.router.pop(true),
+              child: const Text(StringConstants.delete),
             ),
             TextButton(
-              onPressed: () => Navigator.of(context).pop(false),
-              child: const Text('Cancel'),
+              onPressed: () => context.router.pop(false),
+              child: const Text(StringConstants.cancel),
             ),
           ],
         );
