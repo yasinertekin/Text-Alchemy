@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../core/constants/string_constants.dart';
+import 'package:text_recognitions/product/core/constants/string_constants.dart';
 
 /// Undefined widget
 final class UndefinedWidget extends StatelessWidget {
