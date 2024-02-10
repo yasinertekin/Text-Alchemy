@@ -58,17 +58,37 @@ final class StringConstants {
   static const String errorAddingTextRecognition =
       'Error adding textrecognition: ';
 
-
+  /// Copy to clipboard
   static const String copiedToClipboard = 'Copied to clipboard';
 
+  /// Error
   static const String error = 'Error';
 
+  /// Ok
   static const String ok = 'Ok';
 
+  /// Image Error
   static const String imageError = 'Image Error';
 
+  /// Pdf error
   static const String pdfError = 'Pdf error:';
 
+  /// Unhandled state
   static const String unHandledState = 'Error: Unhandled state';
 
+  /// Open settings
+  static const String openSettings = 'Open settings';
+
+  /// Delete Confirmation
+  static const String deleteConfirmation = 'Delete Confirmation';
+
+  /// Are you sure you want to delete this item?
+  static const String areYouSureYouWantToDeleteThisItem =
+      'Are you sure you want to delete this item?';
+
+  /// Delete
+  static const String delete = 'Delete';
+
+  /// Cancel
+  static const String cancel = 'Cancel';
 }
