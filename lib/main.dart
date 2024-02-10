@@ -37,6 +37,8 @@ final class _MyApp extends StatelessWidget {
           darkTheme: AppThemeDark().theme,
           themeMode: state.themeMode,
 
+          debugShowCheckedModeBanner: false,
+
           /// This is the router of the app
           routerDelegate: _appRouter.delegate(),
           routeInformationParser: _appRouter.defaultRouteParser(),

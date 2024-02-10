@@ -7,5 +7,5 @@ final class ImageConstants {
   const ImageConstants._();
 
   /// This is the title of the app
-  static const String appLogo = 'assets/img_app_logo_rb.png';
+  static const String appLogo = 'assets/img_app_logo.jpeg';
 }

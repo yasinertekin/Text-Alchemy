@@ -1,7 +1,6 @@
 # Text Recognition App
 
 Text Recognition App is a mobile application developed with Flutter. This application uses Google ML Kit to identify text in images taken from the gallery or camera. Users can capture images or select images from their device's gallery, and the application then identifies the text in the image and presents it to the user. Recognised text can optionally be stored on the device using the Hive package.
-This project combines text recognition capabilities using technologies such as Flutter and Google ML Kit. With its simple interface and impressive performance, the application allows users to easily perform text recognition tasks in their daily lives. In addition, users have the option to crop the selected image prior to text recognition, allowing for further customisation and accuracy in the recognition process. With the ability to save recognised text, users can easily store and access recognised text for future use.
 
 ## Features
 
@@ -19,3 +18,32 @@ This project combines text recognition capabilities using technologies such as F
 
 - [Flutter](https://flutter.dev/)
 - [Dart](https://dart.dev/)
+
+## Preview
+
+<p>
+    <img src="screenshots/home.png" width="19%"/>
+    <img src="screenshots/pinned.png" width="19%"/>
+    <img src="screenshots/detail.png" width="19%"/>
+    <img src="screenshots/pdf.png" width="19%"/>
+    <img src="screenshots/crop.png" width="19%"/>
+</p>
+
+## Packages
+
+- State Management
+
+  - [Bloc](https://pub.dev/packages/flutter_bloc)
+  - [Provider](https://pub.dev/packages/provider)
+
+- Caching
+  - [Hive](https://pub.dev/packages/hive)
+  - [HydratedBloc](https://pub.dev/packages/hydrated_bloc)
+- Routing
+  - [AutoRoute](https://pub.dev/packages/auto_route)
+- Dependency Injection
+  - [GetIt](https://pub.dev/packages/get_it)
+- JsonParsing
+  - [JsonSerializable](https://pub.dev/packages/json_serializable)
+- Google MlKit Text Recognition
+  - [GoogleMlKitTextRecognition][https://pub.dev/packages/google_mlkit_text_recognition]
