@@ -22,9 +22,14 @@ final class _CustomDrawerHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const DrawerHeader(
-      child: Center(
-        child: Text('Drawer Header'),
+    const imageUrl = 'assets/img_app_logo.jpeg';
+    return DrawerHeader(
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(30),
+        child: Image.asset(
+          imageUrl,
+          fit: BoxFit.contain,
+        ),
       ),
     );
   }
@@ -77,8 +82,8 @@ final class DrawerModelLists {
   static List<DrawerModel> drawerItems(BuildContext context) {
     return [
       DrawerModel(
-        title: 'Drawer Header',
-        trailing: const Text('Drawer Header'),
+        title: 'Share',
+        trailing: const Icon(Icons.share),
         onTap: () {},
       ),
       DrawerModel(
