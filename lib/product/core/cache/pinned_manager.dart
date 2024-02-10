@@ -4,12 +4,16 @@ import 'package:text_recognitions/product/core/constants/hive_constants.dart';
 
 @immutable
 
-/// Represents a cache manager provider.
+/// PinnedManager
 final class PinnedManager {
+  /// PinnedManager factory
+  factory PinnedManager() {
+    return const PinnedManager._();
+  }
   const PinnedManager._();
 
-  /// Creates a [PinnedCacheManager].
-  static PinnedCacheManager createCacheManager() {
+  /// Create cache manager
+  PinnedCacheManager createCacheManager() {
     return PinnedCacheManager(HiveConstants.hiveBoxName);
   }
 }
