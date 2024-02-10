@@ -22,12 +22,11 @@ final class _CustomDrawerHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const imageUrl = 'assets/img_app_logo.jpeg';
     return DrawerHeader(
       child: ClipRRect(
         borderRadius: BorderRadius.circular(30),
         child: Image.asset(
-          imageUrl,
+          ImageConstants.appLogo,
           fit: BoxFit.contain,
         ),
       ),
