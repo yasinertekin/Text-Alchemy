@@ -19,15 +19,15 @@ final class _TextCard extends StatelessWidget
           return textCardDialog(context, result);
         },
         key: uniqueKey,
-        background: const ColoredBox(
-          color: Colors.red,
+        background: ColoredBox(
+          color: ProjectColor.colorsRed.color,
           child: Align(
             alignment: Alignment.centerRight,
             child: Padding(
-              padding: EdgeInsets.only(right: 20),
+              padding: context.paddingOnlyRight,
               child: Icon(
                 Icons.delete,
-                color: Colors.white,
+                color: ProjectColor.colorsWhite.color,
               ),
             ),
           ),
