@@ -23,9 +23,14 @@ final class ImagePickerViewModel extends ChangeNotifier with ErrorMixin {
   Result? result;
 
   /// Get image from gallery
-  Future<File?> getImage() async {
-    final pickedFile = await imagePicker.pickImage();
-    return pickedFile;
+  Future<File?> getImage(BuildContext context) async {
+    try {
+      final pickedFile = await imagePicker.pickImage();
+      return pickedFile;
+    } on Exception catch (e) {
+      await showError('$e', context);
+    }
+    return null;
   }
 
   /// Get image from camera
