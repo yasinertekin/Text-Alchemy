@@ -63,7 +63,7 @@ abstract class $AppRouter extends _i8.RootStackRouter {
     ImagePickerRoute.name: (routeData) {
       return _i8.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i4.ImagePickerView(),
+        child: _i4.ImagePickerView(),
       );
     },
     ImageRoute.name: (routeData) {
