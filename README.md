@@ -1,6 +1,6 @@
-# Text Recognition App
+# Text Alchemy
 
-Text Recognition App is a mobile application developed with Flutter. This application uses Google ML Kit to identify text in images taken from the gallery or camera. Users can capture images or select images from their device's gallery, and the application then identifies the text in the image and presents it to the user. Recognised text can optionally be stored on the device using the Hive package.
+Text Alchemy App is a mobile application developed with Flutter. This application uses Google ML Kit to identify text in images taken from the gallery or camera. Users can capture images or select images from their device's gallery, and the application then identifies the text in the image and presents it to the user. Recognised text can optionally be stored on the device using the Hive package.
 
 ## Features
 
