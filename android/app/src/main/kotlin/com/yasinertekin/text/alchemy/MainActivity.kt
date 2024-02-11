@@ -1,4 +1,4 @@
-package com.example.text_recognitions
+package com.yasinertekin.text.alchemy
 
 import io.flutter.embedding.android.FlutterActivity
 
