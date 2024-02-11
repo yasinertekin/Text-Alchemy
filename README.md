@@ -43,7 +43,5 @@ Text Recognition App is a mobile application developed with Flutter. This applic
   - [AutoRoute](https://pub.dev/packages/auto_route)
 - Dependency Injection
   - [GetIt](https://pub.dev/packages/get_it)
-- JsonParsing
-  - [JsonSerializable](https://pub.dev/packages/json_serializable)
 - Google MlKit Text Recognition
-  - [GoogleMlKitTextRecognition][https://pub.dev/packages/google_mlkit_text_recognition]
+  - [GoogleMlKitTextRecognition](https://pub.dev/packages/google_mlkit_text_recognition)
