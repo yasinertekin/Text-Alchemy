@@ -9,6 +9,7 @@ import 'package:text_recognitions/product/mixin/error_mixin.dart';
 import 'package:text_recognitions/product/utility/custom_exception.dart';
 
 // PdfService sınıfını bir arayüze dönüştürmek için bir soyut sınıf tanımlayın.
+// ignore: one_member_abstracts
 abstract final class PdfService {
   // PDF oluşturma ve paylaşma işlemini gerçekleştiren metot.
   Future<void> generateAndSharePdf(String text);

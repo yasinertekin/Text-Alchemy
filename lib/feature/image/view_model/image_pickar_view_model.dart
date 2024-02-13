@@ -28,6 +28,7 @@ final class ImagePickerViewModel extends ChangeNotifier with ErrorMixin {
       final pickedFile = await imagePicker.pickImage();
       return pickedFile;
     } on Exception catch (e) {
+      // ignore: use_build_context_synchronously
       await showError('$e', context);
     }
     return null;
@@ -39,6 +40,7 @@ final class ImagePickerViewModel extends ChangeNotifier with ErrorMixin {
       final pickedFile = await imagePicker.takePicture();
       return pickedFile;
     } on Exception catch (e) {
+      // ignore: use_build_context_synchronously
       await showError('$e', context);
     }
     return null;
@@ -59,13 +61,15 @@ final class ImagePickerViewModel extends ChangeNotifier with ErrorMixin {
 
       notifyListeners();
     } on Exception catch (e) {
-      await showError('Resim işleme hatası: $e', context);
+      // ignore: use_build_context_synchronously
+      await showError('$e', context);
     }
   }
 
   /// Update textdd
   void updateText(String text) {
     result = result!.copyWith(text: text);
+
     notifyListeners();
   }
 

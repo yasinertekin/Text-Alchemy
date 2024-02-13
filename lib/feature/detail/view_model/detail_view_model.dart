@@ -23,6 +23,7 @@ final class DetailViewModel extends ChangeNotifier with ErrorMixin {
       await pdfService.generateAndSharePdf(pdfText);
       notifyListeners();
     } catch (e) {
+      // ignore: use_build_context_synchronously
       await showError(
         e.toString(),
         context,

@@ -24,7 +24,7 @@ final class _CustomDrawerHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return DrawerHeader(
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(30),
+        borderRadius: context.border.normalBorderRadius,
         child: Image.asset(
           ImageConstants.appLogo,
           fit: BoxFit.contain,
