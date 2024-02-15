@@ -20,14 +20,16 @@ abstract final class Locators {
   /// Setup
   static Future<void> setup() async {
     _instance
-      ..registerSingleton<TextRecognitionCacheManagerCubit>(
-        TextRecognitionCacheManagerCubit(
-          PinnedManager().createCacheManager(),
+      ..registerSingleton(PinnedManager())
+      ..registerSingleton(ImageManager())
+      ..registerFactory(
+        () => TextRecognitionCacheManagerCubit(
+          _instance<PinnedManager>().createCacheManager(),
         ),
       )
-      ..registerSingleton<ImagePickerViewModel>(
-        ImagePickerViewModel(
-          ImageManager().createImageManager(),
+      ..registerFactory(
+        () => ImagePickerViewModel(
+          _instance<ImageManager>().createImageManager(),
         ),
       );
   }
