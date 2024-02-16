@@ -61,9 +61,11 @@ abstract class $AppRouter extends _i8.RootStackRouter {
       );
     },
     ImagePickerRoute.name: (routeData) {
+      final args = routeData.argsAs<ImagePickerRouteArgs>(
+          orElse: () => const ImagePickerRouteArgs());
       return _i8.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i4.ImagePickerView(),
+        child: _i4.ImagePickerView(key: args.key),
       );
     },
     ImageRoute.name: (routeData) {
@@ -207,16 +209,31 @@ class ImageCropperRouteArgs {
 
 /// generated route for
 /// [_i4.ImagePickerView]
-class ImagePickerRoute extends _i8.PageRouteInfo<void> {
-  const ImagePickerRoute({List<_i8.PageRouteInfo>? children})
-      : super(
+class ImagePickerRoute extends _i8.PageRouteInfo<ImagePickerRouteArgs> {
+  ImagePickerRoute({
+    _i10.Key? key,
+    List<_i8.PageRouteInfo>? children,
+  }) : super(
           ImagePickerRoute.name,
+          args: ImagePickerRouteArgs(key: key),
           initialChildren: children,
         );
 
   static const String name = 'ImagePickerRoute';
 
-  static const _i8.PageInfo<void> page = _i8.PageInfo<void>(name);
+  static const _i8.PageInfo<ImagePickerRouteArgs> page =
+      _i8.PageInfo<ImagePickerRouteArgs>(name);
+}
+
+class ImagePickerRouteArgs {
+  const ImagePickerRouteArgs({this.key});
+
+  final _i10.Key? key;
+
+  @override
+  String toString() {
+    return 'ImagePickerRouteArgs{key: $key}';
+  }
 }
 
 /// generated route for

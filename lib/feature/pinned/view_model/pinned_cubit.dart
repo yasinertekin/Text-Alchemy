@@ -67,7 +67,7 @@ final class TextRecognitionCacheManagerCubit
   }) async {
     try {
       await cacheManager.updateItem(result);
-      await deletePinned(deleteResult.id ?? '');
+      await deletePinned(deleteResult.id);
 
       final updatedTextRecognitions = cacheManager.getValues();
       emit(PinnedCacheManagerLoadedState(updatedTextRecognitions));

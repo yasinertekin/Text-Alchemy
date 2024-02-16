@@ -37,19 +37,25 @@ final class DetailView extends StatelessWidget {
           result: result ??
               Result(
                 text: '',
+                imagePath: '',
               ),
         ),
         ImageRoute(
           result: result ??
               Result(
                 text: '',
+                imagePath: '',
               ),
         ),
       ],
       builder: (context, child, controller) {
         return Scaffold(
           appBar: _DetailAppBar(
-            result: result ?? Result(text: ''),
+            result: result ??
+                Result(
+                  text: '',
+                  imagePath: '',
+                ),
             viewModel: viewModel,
             controller: controller,
           ),

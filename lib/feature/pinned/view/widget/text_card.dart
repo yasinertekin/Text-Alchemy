@@ -35,13 +35,13 @@ final class _TextCard extends StatelessWidget
         onDismissed: (direction) {
           context
               .read<TextRecognitionCacheManagerCubit>()
-              .deletePinned(result.id ?? '');
+              .deletePinned(result.id);
         },
         child: Card(
           elevation: 5,
           child: ListTile(
             leading: CustomImage(
-              result.imagePath ?? '',
+              result.imagePath,
               height: 0.1,
               width: context.sized.dynamicWidth(0.2),
             ),

@@ -16,8 +16,8 @@ part 'result.g.dart';
 final class Result with EquatableMixin {
   /// Result constructor
   Result({
+    required this.imagePath,
     this.text,
-    this.imagePath,
     String? id,
   }) : id = id ?? generateRandomId();
 
@@ -30,11 +30,11 @@ final class Result with EquatableMixin {
   @HiveField(1)
 
   /// Image path
-  final String? imagePath;
+  final String imagePath;
   @HiveField(2)
 
   /// Id
-  final String? id;
+  final String id;
 
   /// To json
   Map<String, dynamic> toJson() => _$ResultToJson(this);

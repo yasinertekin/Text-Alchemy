@@ -19,7 +19,7 @@ final class ImageView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomImage(
-      result.imagePath ?? '',
+      result.imagePath,
     );
   }
 }

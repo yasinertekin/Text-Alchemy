@@ -132,6 +132,7 @@ extension ImageDataExtension on ImageData {
                 imagePickerViewModel.result ??
                     Result(
                       text: '',
+                      imagePath: '',
                     ),
               );
     }

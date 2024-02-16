@@ -31,9 +31,9 @@ final class NavBar extends StatelessWidget {
       },
       drawer: const _CustomDrawer(),
       key: myWidgetKey,
-      routes: const [
+      routes: [
         ImagePickerRoute(),
-        PinnedRoute(),
+        const PinnedRoute(),
       ],
       bottomNavigationBuilder: (_, tabsRouter) {
         return BottomNavigationBar(

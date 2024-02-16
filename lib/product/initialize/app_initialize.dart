@@ -8,6 +8,8 @@ import 'package:text_recognitions/locators.dart';
 
 /// AppInitialize
 abstract final class AppInitialize {
+  const AppInitialize._();
+
   /// Initialize the app
   static Future<void> initialize() async {
     await Hive.initFlutter();

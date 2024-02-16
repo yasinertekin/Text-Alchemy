@@ -17,8 +17,8 @@ class ResultAdapter extends TypeAdapter<Result> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return Result(
+      imagePath: fields[1] as String,
       text: fields[0] as String?,
-      imagePath: fields[1] as String?,
       id: fields[2] as String?,
     );
   }
@@ -51,8 +51,8 @@ class ResultAdapter extends TypeAdapter<Result> {
 // **************************************************************************
 
 Result _$ResultFromJson(Map<String, dynamic> json) => Result(
+      imagePath: json['imagePath'] as String,
       text: json['text'] as String?,
-      imagePath: json['imagePath'] as String?,
       id: json['id'] as String?,
     );
 

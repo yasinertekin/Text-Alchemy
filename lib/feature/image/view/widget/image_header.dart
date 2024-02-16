@@ -19,6 +19,7 @@ final class _ImageHeader extends StatelessWidget {
           result: imagePickerViewModel.result ??
               Result(
                 text: '',
+                imagePath: '',
               ),
         ),
       ],
