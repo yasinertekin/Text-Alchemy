@@ -9,8 +9,6 @@ import 'package:text_recognitions/product/initialize/theme/light/app_theme_light
 import 'package:text_recognitions/product/router/app_router.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-
   await AppInitialize.initialize();
   runApp(
     AppStateInitialize(

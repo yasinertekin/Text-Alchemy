@@ -12,6 +12,8 @@ abstract final class AppInitialize {
 
   /// Initialize the app
   static Future<void> initialize() async {
+    WidgetsFlutterBinding.ensureInitialized();
+
     await Hive.initFlutter();
 
     HydratedBloc.storage = await HydratedStorage.build(
